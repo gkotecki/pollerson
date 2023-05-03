@@ -1,7 +1,7 @@
 {
-  "name": "pollerson",
+  "name": "pollerson-server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/pollerson/src",
+  "sourceRoot": "apps/pollerson-server/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,12 +11,12 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/pollerson",
-        "main": "apps/pollerson/src/main.ts",
-        "tsConfig": "apps/pollerson/tsconfig.app.json",
-        "assets": ["apps/pollerson/src/assets"],
+        "outputPath": "dist/apps/pollerson-server",
+        "main": "apps/pollerson-server/src/main.ts",
+        "tsConfig": "apps/pollerson-server/tsconfig.app.json",
+        "assets": ["apps/pollerson-server/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "apps/pollerson/webpack.config.js"
+        "webpackConfig": "apps/pollerson-server/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -27,14 +27,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "pollerson:build"
+        "buildTarget": "pollerson-server:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "pollerson:build:development"
+          "buildTarget": "pollerson-server:build:development"
         },
         "production": {
-          "buildTarget": "pollerson:build:production"
+          "buildTarget": "pollerson-server:build:production"
         }
       }
     },
@@ -42,14 +42,14 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/pollerson/**/*.ts"]
+        "lintFilePatterns": ["apps/pollerson-server/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/pollerson/jest.config.ts",
+        "jestConfig": "apps/pollerson-server/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
