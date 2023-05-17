@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { LobbyGateway } from './socket.gateway';
+import { PollGateway } from './poll.gateway';
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService, LobbyGateway],
+  providers: [AppService, PollGateway],
 })
 export class AppModule {}

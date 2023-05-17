@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { fromEvent, map, switchMap, tap } from 'rxjs';
-import { LobbyService } from './shared/services/lobby.service';
+import { PollService } from './shared/services/poll.service';
 
 @Component({
   selector: 'pollerson-root',
@@ -12,10 +12,11 @@ export class AppComponent implements OnInit {
 
   mySignal = signal(1);
 
-  lobby = inject(LobbyService)
+  lobby = inject(PollService);
 
   ngOnInit(): void {
-    this.lobby.login({})
-    this.lobby.getPlayers().subscribe(console.log)
+    this.lobby.init({});
+    this.lobby.getUsers();
+    this.lobby.users$().subscribe(console.log);
   }
 }
