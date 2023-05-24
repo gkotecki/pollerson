@@ -7,7 +7,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/angular:webpack-browser",
+      "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/pollerson-ui",
@@ -20,10 +20,7 @@
           "apps/pollerson-ui/src/assets"
         ],
         "styles": ["apps/pollerson-ui/src/styles.scss"],
-        "scripts": [],
-        "customWebpackConfig": {
-          "path": "apps/pollerson-ui/webpack.config.js"
-        }
+        "scripts": []
       },
       "configurations": {
         "production": {
@@ -39,10 +36,7 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all",
-          "customWebpackConfig": {
-            "path": "apps/pollerson-ui/webpack.prod.config.js"
-          }
+          "outputHashing": "all"
         },
         "development": {
           "buildOptimizer": false,
@@ -56,11 +50,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:module-federation-dev-server",
-      "options": {
-        "port": 4200,
-        "publicHost": "http://localhost:4200"
-      },
+      "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
           "browserTarget": "pollerson-ui:build:production"
@@ -104,8 +94,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "pollerson-ui:build",
-        "port": 4200
+        "buildTarget": "pollerson-ui:build"
       }
     }
   }

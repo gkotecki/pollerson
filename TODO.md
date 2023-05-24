@@ -1,3 +1,0 @@
-# SUGESTÕES
-
-- Internacionalização

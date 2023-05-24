@@ -1,8 +1,1 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="create-poll">CreatePoll</a></li>
-</ul>
-<h1>this is pollerson-ui</h1>
-<button (click)="mySignal.set(mySignal() + 1)">{{ mySignal() }}</button>
-<router-outlet></router-outlet>
-<h1>pollerson-ui end</h1>
+<pollerson-nx-welcome></pollerson-nx-welcome> <router-outlet></router-outlet>
